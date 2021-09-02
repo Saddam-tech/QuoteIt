@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 
 import useHttp from "../../hooks/use-http";
 import { addComment } from "../../lib/api";
-import LoadingSpinner from "../UI/LoadingSpinner";
+import LoadingSpinner from "../../UI/LoadingSpinner";
 import classes from "./NewCommentForm.module.css";
 
 const NewCommentForm = (props) => {
@@ -39,7 +39,9 @@ const NewCommentForm = (props) => {
         <label htmlFor="comment">Your comment</label>
         <textarea id="comment" rows="5" ref={commentTextRef}></textarea>
       </div>
-      <div className="btn">Add Comment</div>
+      <div className={classes.actions}>
+        <button className="btn">Add Comment</button>
+      </div>
     </form>
   );
 };

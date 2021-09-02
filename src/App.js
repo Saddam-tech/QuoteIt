@@ -10,7 +10,7 @@ function App() {
   return (
     <Layout>
       <Switch>
-        <Route path="/">
+        <Route path="/" exact>
           <Redirect to="/quotes" />
         </Route>
         <Route path="/quotes" exact>
@@ -19,7 +19,7 @@ function App() {
         <Route path="/quotes/:quoteId">
           <QuoteDetail />
         </Route>
-        <Route path="/newQuote">
+        <Route path="/new-quote">
           <NewQuote />
         </Route>
         <Route path="*">
