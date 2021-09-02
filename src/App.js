@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 import Layout from "./components/layout/Layout";
+import LoadingSpinner from "./UI/LoadingSpinner";
 
 const AllQuotes = React.lazy(() => import("./pages/AllQuotes"));
 const QuoteDetail = React.lazy(() => import("./pages/QuoteDetail"));
@@ -11,7 +12,13 @@ const NotFound = React.lazy(() => import("./pages/NotFound"));
 function App() {
   return (
     <Layout>
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense
+        fallback={
+          <div className="centered">
+            <LoadingSpinner />
+          </div>
+        }
+      >
         <Switch>
           <Route path="/" exact>
             <Redirect to="/quotes" />
